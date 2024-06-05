@@ -57,8 +57,8 @@ namespace Profil_Osobowosci
         private static PredictionEngine<ModelInput, ModelOutput> CreatePredictEngine()
         {
             var mlContext = new MLContext();
-            mlContext.GpuDeviceId = 0;
-            mlContext.FallbackToCpu = false;
+            mlContext.GpuDeviceId = null;
+            mlContext.FallbackToCpu = true;
             ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var _);
             return mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
         }
