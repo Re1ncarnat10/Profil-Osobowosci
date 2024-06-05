@@ -2,16 +2,20 @@
 using Profil_Osobowosci.AppDbConext;
 namespace Profil_Osobowosci.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using Profil_Osobowosci.Models;
+using Models;
+using Microsoft.AspNetCore.Identity; 
 
 
 public class TestResult : PageModel
 {
     private readonly ApplicationDbContext _context;
+    private readonly UserManager<User> _userManager; 
 
-    public TestResult(ApplicationDbContext context)
+    public TestResult(ApplicationDbContext context, UserManager<User> userManager)
     {
         _context = context;
+        _userManager = userManager; 
+
     }
 
     [BindProperty]
@@ -34,7 +38,9 @@ public class TestResult : PageModel
             var testResult = new PersonalityTestResult 
             {
                 Comment = Comment,
-                Result = Result
+                Result = Result,
+                UserId = _userManager.GetUserId(User) // Add this line
+
             };
 
             _context.PersonalityTestResults.Add(testResult);
