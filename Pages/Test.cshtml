@@ -1,0 +1,167 @@
+﻿@page
+@model TestModel
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        padding: 20px;
+        background-color: #f0f8ff;
+    }
+
+    h2, h3, h4 {
+        color: #333;
+        text-align: center;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    label, select {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        display: block;
+        width: auto;
+        padding: 10px;
+        margin: 20px auto 0;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        color: white;
+        background-color: #4CAF50;
+        border: none;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        margin: 0 auto;
+        display: block;
+    }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+
+</style>
+
+<h2>Zbadaj swój profil osobowości</h2>
+<h3>W polu ponieżej napisz kilka zdań osobie.</h3>
+<h3>Na podstawie tego tekstu przewidzimy Twój profil osobowości.</h3>
+<h4>Pamiętaj, im więcej napiszesz o sobie tym przewidywanie będzie bardziej dokładne</h4>
+
+<form method="post">
+    <label for="comment">Napisz nam coś o sobie!:</label>
+    <textarea id="comment" name="comment" rows="5" style="resize: none; width: 100%; margin: 5px 0;"></textarea>
+    <input type="submit" value="Wyślij">
+</form>
+
+
+
+@if (!String.IsNullOrEmpty(Model.Result))
+{
+    <h2>Twój przewidywany model osobowości to: @Model.Result</h2>
+    
+    if (Model.Result == "INTJ")
+    {
+        <p><a href="https://www.16personalities.com/intj-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie INTJ</a></p>
+    }
+    else if (Model.Result == "INTP")
+    {
+        <p><a href="https://www.16personalities.com/intp-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie INTP</a></p>
+    }
+    else if (Model.Result == "ENTJ")
+    {
+        <p><a href="https://www.16personalities.com/entj-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ENTJ</a></p>
+    }
+    else if (Model.Result == "ENTP")
+    {
+        <p><a href="https://www.16personalities.com/entp-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ENTP</a></p>
+    }
+    else if (Model.Result == "INFJ")
+    {
+        <p><a href="https://www.16personalities.com/infj-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie INFJ</a></p>
+    }
+    else if (Model.Result == "INFP")
+    {
+        <p><a href="https://www.16personalities.com/infp-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie INFP</a></p>
+    }
+    else if (Model.Result == "ENFJ")
+    {
+        <p><a href="https://www.16personalities.com/enfj-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ENFJ</a></p>
+    }
+    else if (Model.Result == "ENFP")
+    {
+        <p><a href="https://www.16personalities.com/enfp-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ENFP</a></p>
+    }
+    else if (Model.Result == "ISTJ")
+    {
+        <p><a href="https://www.16personalities.com/istj-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ISTJ</a></p>
+    }
+    else if (Model.Result == "ISFJ")
+    {
+        <p><a href="https://www.16personalities.com/isfj-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ISFJ</a></p>
+    }
+    else if (Model.Result == "ESTJ")
+    {
+        <p><a href="https://www.16personalities.com/estj-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ESTJ</a></p>
+    }
+    else if (Model.Result == "ESFJ")
+    {
+        <p><a href="https://www.16personalities.com/esfj-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ESFJ</a></p>
+    }
+    else if (Model.Result == "ISTP")
+    {
+        <p><a href="https://www.16personalities.com/istp-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ISTP</a></p>
+    }
+    else if (Model.Result == "ISFP")
+    {
+        <p><a href="https://www.16personalities.com/isfp-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ISFP</a></p>
+    }
+    else if (Model.Result == "ESTP")
+    {
+        <p><a href="https://www.16personalities.com/estp-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ESTP</a></p>
+    }
+    else if (Model.Result == "ESFP")
+    {
+        <p><a href="https://www.16personalities.com/esfp-personality" class="button">Kliknij tutaj, aby dowiedzieć się więcej o typie ESFP</a></p>
+    }
+
+    <script>
+        var textarea = document.getElementById('comment');
+        textarea.addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+    </script>
+
+}
+

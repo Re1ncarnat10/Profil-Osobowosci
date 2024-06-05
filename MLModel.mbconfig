@@ -35,6 +35,48 @@
     "Type": "LocalGPU",
     "Version": 1
   },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "TextClassificationMulti",
+        "Score": 0.34648984841093594,
+        "RuntimeInSeconds": 1909.798,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2",
+          "e0": {
+            "OutputColumnName": "type",
+            "InputColumnName": "type",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "LabelColumnName": "type",
+            "Sentence1ColumnName": "posts",
+            "ScoreColumnName": "Score",
+            "OutputColumnName": "PredictedLabel",
+            "BatchSize": 32,
+            "MaxEpochs": 10,
+            "Architecture": "Roberta"
+          },
+          "e2": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "MapValueToKey",
+      "e1": "TextClassificationMulti",
+      "e2": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2",
+    "MetricName": "MacroAccuracy",
+    "ModelFilePath": "C:\\Users\\Maciek\\source\\repos\\Profil Osobowosci\\MLModel.mlnet"
+  },
   "Type": "TrainingConfig",
   "Version": 5,
   "TrainingOption": {
