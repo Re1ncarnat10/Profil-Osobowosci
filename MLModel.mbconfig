@@ -1,0 +1,53 @@
+﻿{
+  "Scenario": "TextClassification",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "|",
+    "ReadMultiLines": true,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": true,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\Maciek\\Desktop\\dfg\\mbti_1.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "type",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "posts",
+        "ColumnPurpose": "Text",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalGPU",
+    "Version": 1
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 1,
+    "Type": "TextClassficationTrainingOption",
+    "TrainingTime": 600,
+    "OptimizeMetric": "MacroAccuracy",
+    "LabelColumn": "type",
+    "TextColumn": "posts",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}
