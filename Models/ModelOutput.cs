@@ -5,6 +5,8 @@ namespace Profil_Osobowosci.Models
 {
     public class ModelOutput
     {
+        [Key]
+        public int Id { get; set; }
         [ColumnName(@"type")]
         public uint Type { get; set; }
 

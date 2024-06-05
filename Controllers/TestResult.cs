@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Profil_Osobowosci.AppDbConext;
+using Profil_Osobowosci.Data;
 namespace Profil_Osobowosci.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Identity;
 
 public class TestResult : PageModel
 {
-    private readonly ApplicationDbContext _context;
+    private readonly AppDbContext _context;
     private readonly UserManager<User> _userManager; 
 
-    public TestResult(ApplicationDbContext context, UserManager<User> userManager)
+    public TestResult(AppDbContext context, UserManager<User> userManager)
     {
         _context = context;
         _userManager = userManager; 
@@ -39,8 +39,7 @@ public class TestResult : PageModel
             {
                 Comment = Comment,
                 Result = Result,
-                UserId = _userManager.GetUserId(User) // Add this line
-
+                UserId = User.Identity.IsAuthenticated ? _userManager.GetUserId(User) : null
             };
 
             _context.PersonalityTestResults.Add(testResult);

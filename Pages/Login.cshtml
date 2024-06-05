@@ -1,0 +1,25 @@
+﻿@page
+@model Profil_Osobowosci.Pages.Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+<div>
+    <form method="post" action="/LoginAndRegisterController/Login">
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <input type="submit" value="Login">
+    </form>
+</div>
+</body>
+</html>
